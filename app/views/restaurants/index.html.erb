@@ -22,10 +22,28 @@
       <% @restaurants.each do |restaurant| %>
       <tr>
         <td><%= restaurant.name %></td>
-        <td><%= restaurant.cuisine.name %></td>
-        <td><%= restaurant.neighborhood.name %></td>
+        <td>
+          <% if restaurant.cuisine.present? %>
+            <a href="/cuisines/<%= restaurant.cuisine.id %>">
+              <%= restaurant.cuisine.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if restaurant.neighborhood.present? %>
+            <a href="/neighborhoods/<%= restaurant.neighborhood.id %>">
+              <%= restaurant.neighborhood.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= restaurant.address %></td>
-        <td><%= restaurant.city.name %></td>
+        <td>
+          <% if restaurant.city.present? %>
+            <a href="/cities/<%= restaurant.city.id %>">
+              <%= restaurant.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= restaurant.zipcode %></td>
         <td><%= restaurant.notes %></td>
         <td>
