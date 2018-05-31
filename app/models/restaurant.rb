@@ -1,6 +1,8 @@
 class Restaurant < ApplicationRecord
   # Direct associations
 
+  belongs_to :cuisine
+
   belongs_to :city,
              :counter_cache => true
 
